@@ -6,7 +6,7 @@ const DisplayName = () => {
 
   return (
     <button onClick={() => context.onClick()}>
-      Click me!
+      {context.buttonText}
     </button>
   );
 }

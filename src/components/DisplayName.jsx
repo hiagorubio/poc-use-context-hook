@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import { ConfigContext } from '../App'
 
 const DisplayName = () => {
-  const { contextMessage } = useContext(ConfigContext);
+  const { count } = useContext(ConfigContext);
 
   return (
     <div>
-      {contextMessage}
+      {count}
     </div>
   );
 }
