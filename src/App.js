@@ -1,25 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import DisplayName from './components/DisplayName'
+import SimpleButton from './components/SimpleButton'
+import NestedComponent from './components/NestedComponent'
+export const ConfigContext = React.createContext();
 
-function App() {
+const configValue = {
+  contextMessage: 'This is a context message',
+  onClick: () => {
+    window.alert('Alert called by context')
+  },
+  onChildrenClick: () => {
+    window.alert('You click in the children button')
+  }
+}
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ConfigContext.Provider value={configValue}>
+      <DisplayName />
+      <br />
+      <SimpleButton />
+      <br />
+      <NestedComponent />
+    </ConfigContext.Provider>
   );
 }
 
